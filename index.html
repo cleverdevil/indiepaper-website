@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<!--
+  This website was built using the Stellar template by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Indiepaper: A read later service built for the open web</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+    <script type="text/javascript">
+      function generate() {
+        var destination = document.getElementById('destination').value;
+        var token = document.getElementById('token').value;
+        var b = 'javascript:void%20function(){(function(){var%20e=new%20XMLHttpRequest;var%20t=%22url=%22+document.URL;e.open(%22POST%22,%22https://indiepaper.io%22,!0),e.setRequestHeader(%22Content-Type%22,%22application/x-www-form-urlencoded%22),e.setRequestHeader(%22mp-destination%22,%22' + destination + '%22),e.setRequestHeader(%22Authorization%22,%22Bearer%20' + token + '%22),e.onreadystatechange=function(){4==e.readyState%26%26200==e.status%26%26alert(%22Saved!%22)},e.send(t)})()}();';
+
+        document.getElementById('bookmarklet-link').href = b;
+
+        document.getElementById('bookmarklet-container').style.display = 'block';
+        document.getElementById('bookmarklet-form').style.display = 'none';
+        document.getElementById('bookmarklet-actions').style.display = 'none';
+      }
+    </script>
+  </head>
+  <body class="is-preload">
+
+    <!-- Wrapper -->
+      <div id="wrapper">
+
+        <!-- Header -->
+          <header id="header" class="alt">
+            <span class="logo"><img src="images/logo.png" alt="" width="256" height="256" /></span>
+            <h1>Indiepaper</h1>
+            <p>A &ldquo;read later&rdquo; service built for the open web</p>
+          </header>
+
+        <!-- Nav -->
+          <nav id="nav">
+            <ul>
+              <li><a href="#intro" class="active">Introduction</a></li>
+              <li><a href="#bookmarklet">Bookmarklet</a></li>
+              <li><a href="#macos">macOS</a></li>
+              <li><a href="#ios">iOS</a></li>
+              <li><a href="#developers">Developers</a></li>
+            </ul>
+          </nav>
+
+        <!-- Main -->
+          <div id="main">
+
+            <!-- Introduction -->
+              <section id="intro" class="main">
+                <div class="spotlight">
+                  <div class="content">
+                    <header class="major">
+                      <h2>Introducing Indiepaper</h2>
+                    </header>
+                    <p>
+                      Have you ever stumbled upon an article that you want to
+                      read, but don't have the time to read right away?
+                      Indiepaper is here to help! Send your articles to
+                      Indiepaper using the <a href="#bookmarklet">bookmarklet</a>, 
+                      <a href="#macos">macOS app</a>, or <a href="#ios">iOS Workflow</a>, 
+                      and Indiepaper will extract the article contents and save it for 
+                      later by publishing to your <a href="https://indieweb.org/Micropub">micropub</a>
+                      server.
+                    </p>
+                    <p>
+                      Indiepaper pairs wonderfully with <a href="https://indieweb.org/Microsub">microsub</a> 
+                      servers like <a href="https://aperture.p3k.io">Aperture</a> and 
+                      <a href="https://indieweb.org/reader">Indie Reader</a> apps like 
+                      <a href="https://indieweb.org/Together">Together</a>, 
+                      <a href="https://indieweb.org/Indigenous">Indigenous</a>, and 
+                      <a href="https://indieweb.org/Monocle">Monocle</a>.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+            <!-- Bookmarklet Section -->
+              <section id="bookmarklet" class="main">
+                <div class="spotlight">
+                  <div class="content">
+                    <header class="major">
+                      <h2>Bookmarklet</h2>
+                    </header>
+                    <p>
+                      To make it easier to use Indiepaper, generate a bookmarklet using the
+                      form below and then drag the "Read Later" link to your bookmarks bar.
+                    </p>
+                    <p id="bookmarklet-container" style="display: none">
+                      <a id="bookmarklet-link" href="http://example.com" class="button">Read Later</a>
+                    </p>
+                    <footer class="major">
+                      <div id="bookmarklet-form">
+                        <label for="destination">Micropub Target URL:</label>
+                        <input type="text" name="destination" id="destination">
+                        <br>
+                        <label for="token">Bearer Token:</label>
+                        <input type="text" name="token" id="token">
+                      </div>
+                      <br>
+                      <ul class="actions " id="bookmarklet-actions">
+                        <li><a href="#" onclick="generate(); return false;" class="button">Generate</a></li>
+                      </ul>
+                    </footer>
+                  </div>
+                  <span class="image"><img src="images/bookmarklet.png" alt="bookmarklet"></span>
+                </div>
+              </section>
+
+            <!-- macOS Section -->
+              <section id="macos" class="main">
+                <div class="spotlight">
+                  <div class="content">
+                    <header class="major">
+                      <h2>macOS Application</h2>
+                    </header>
+                    <img src="images/indiepaper-macos.png" width="400" style="float: right; margin-left: 2em;">
+                    <p>
+                      If you're a macOS user, you may want to install the Indiepaper macOS application,
+                      which will allow you to send links into Indiepaper from any app in macOS using 
+                      the system-wide sharing service.
+                    </p>
+                    <p>
+                      Simply launch the app, enter your configuration details, and click "Save." Once
+                      configured, a system-wide "Send to Indiepaper" action will be available throughout
+                      macOS, including in Safari, and other native applications.
+                    </p>
+                    <footer class="major">
+                      <ul class="actions">
+                        <li><a href="https://github.com/cleverdevil/Indiepaper-macOS/releases" class="button">Download</a></li>
+                      </ul>
+                    </footer>
+                  </div>
+                </div>
+              </section>
+
+            <!-- iOS Section -->
+              <section id="ios" class="main">
+                <header class="major">
+                  <h2>iOS</h2>
+                  <img src="images/workflow-logo.png" width="200" height="200" style="float: right; margin-left: 2em" alt="workflow logo">
+                  <p>
+                    Integration with iOS is provided through <a href="http://workflow.is">Workflow</a>,
+                    an iOS app for automation. Simply download and install the Indiepaper iOS Workflow,
+                    configure it within the Workflow app, and you'll be able to send links to 
+                    Indiepaper from anywhere in iOS.
+                  </p>
+                </header>
+                <footer class="major">
+                  <ul class="actions">
+                    <li><a href="https://cleverdevil.io/s/lJZVQVV4eZOuNNPtMFwW.wflow" class="button">Download Workflow</a></li>
+                  </ul>
+                </footer>
+              </section>
+
+            <!-- Developer Section -->
+              <section id="developers" class="main">
+                <header class="major">
+                  <h2>Developer Details</h2>
+                  <p>
+                    How does Indiepaper work, you say? Well, Indiepaper builds on top of 
+                    <a href="https://indieweb.org">IndieWeb</a> building blocks, namely 
+                    <a href="https://indieweb.org/Micropub">micropub</a>. To use Indiepaper
+                    from your app, just send an HTTP POST request to Indiepaper with a
+                    <code>Authorization</code> header containing a bearer token for your
+                    micropub endpoint, and a <code>mp-destination</code> header containing
+                    the URL for your micropub endpoint. Your POST request should pass the
+                    variable "url" as form-encoded data.
+                  </p>
+                  <p>
+                    For example, if you wanted to save <a href="https://www.theverge.com/2018/6/27/17509888/oumuamua-interstellar-comet-asteroid-solar-system-trajectory">this interesting article from The Verge</a>
+                    to read later channel, which you have created in Aperture with an API key of <code>XXXXXX</code>, 
+                    you would create the request as follows:
+                  </p>
+                  <pre><code>
+POST / HTTP/1.1
+Host: indiepaper.io
+Content-Type: application/x-www-form-urlencoded
+Authorization: Bearer XXXXXX
+mp-destination: https://aperture.p3k.io/micropub
+
+url=https://www.theverge.com/2018/6/27/17509888/oumuamua-interstellar-comet-asteroid-solar-system-trajectory
+                  </code></pre>
+                  <p>
+                    <a href="https://github.com/cleverdevil/indiepaper">Indiepaper is open source</a>, as is
+                    <a href="https://github.com/cleverdevil/Indiepaper-macOS">Indiepaper for macOS</a>.
+                  </p>
+                </header>
+              </section>
+
+          </div>
+
+        <!-- Footer -->
+          <footer id="footer">
+            <p class="copyright">&copy; <a href="https://cleverdevil.io">Jonathan LaCour</a>. <br> Website design <a href="LICENSE.txt">LICENSE</a>.</p>
+          </footer>
+
+      </div>
+
+    <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.scrollex.min.js"></script>
+      <script src="assets/js/jquery.scrolly.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+
+  </body>
+</html>
