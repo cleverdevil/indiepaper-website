@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Stellar by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+    	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Configure Indiepaper with IndieAuth</h1>
+						<p>Login with your domain to get started.</p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<img width="100" src="images/indieauth-logo-color.png" alt="IndieAuth Logo" style="float: right; margin-left: 1em;">
+							   
+                <form id="indieauth-form" action="https://indiepaper.io/indieauth" method="GET">
+                  <h2>Login with your website</h2>
+                  <input placeholder="https://yourdomain.com" type="text" name="me" style="width: 65%; margin-bottom: 0.5em;">
+                  <button type="submit">Login</button>
+                </form>
+              
+                <div id="generated-links" style="display: none">
+                  <h2>Success!</h2>
+                  <p>
+                    You've successfully authenticated with your website. Below is
+                    a bookmarklet you can drag to your bookmarks, and a link that
+                    you can click to auto-configure the macOS app. Before you click
+                    to configure the macOS app, <a href="https://github.com/cleverdevil/Indiepaper-macOS/releases">
+                    download the latest version of the app</a>.
+                  </p>
+                  <p>
+                    <a id="bookmarklet-link" href="http://example.com" class="button">Read Later</a>
+                    <a id="macos-app-link" href="asdf" class="button">Configure Indiepaper for macOS</a>
+                  </p>
+                </div>
+              </section>
+
+					</div>
+
+				<!-- Footer -->
+          <footer id="footer">
+            <p class="copyright">&copy; <a href="https://cleverdevil.io">Jonathan LaCour</a>. <br> Website design <a href="LICENSE.txt">LICENSE</a>.</p>
+          </footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+      
+      <script type="text/javascript">
+      var params = new URLSearchParams(window.location.search);
+      if (params.has('endpoint') && params.has('token')) {
+        var endpoint = params.get('endpoint');
+        var token = params.get('token');
+        
+        generateBookmarklet(endpoint, token);
+        generateConfigurationLink(endpoint, token);
+
+        document.getElementById('indieauth-form').style.display = 'none';
+        document.getElementById('generated-links').style.display = 'block';
+      }
+
+      function generateBookmarklet(endpoint, token) {
+        var b = 'javascript:void%20function(){(function(){var%20e=new%20XMLHttpRequest;var%20t=%22url=%22+document.URL;e.open(%22POST%22,%22https://indiepaper.io%22,!0),e.setRequestHeader(%22Content-Type%22,%22application/x-www-form-urlencoded%22),e.setRequestHeader(%22mp-destination%22,%22' + endpoint + '%22),e.setRequestHeader(%22Authorization%22,%22Bearer%20' + token + '%22),e.onreadystatechange=function(){4==e.readyState%26%26200==e.status%26%26alert(%22Saved!%22)},e.send(t)})()}();';
+        document.getElementById('bookmarklet-link').href = b;
+      }
+
+      function generateConfigurationLink(endpoint, token) {
+        var b = 'indiepaper://configure?micropubTargetURL=' + endpoint + '&bearerToken=' + token;
+        document.getElementById('macos-app-link').href = b;
+      }
+    </script>
+
+	</body>
+</html>
