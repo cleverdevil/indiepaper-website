@@ -171,7 +171,10 @@
                     <code>Authorization</code> header containing a bearer token for your
                     micropub endpoint, and a <code>mp-destination</code> header containing
                     the URL for your micropub endpoint. Your POST request should pass the
-                    variable "url" as form-encoded data.
+                    variable "url" as form-encoded data. Optionally, you can pass the
+                    variable "category" as form-encoded data to specify a category for the
+                    saved content. Note: the "category" parameter can be passed multiple 
+                    times if you want to specify multiple categories.
                   </p>
                   <p>
                     For example, if you wanted to save <a href="https://www.theverge.com/2018/6/27/17509888/oumuamua-interstellar-comet-asteroid-solar-system-trajectory">this interesting article from The Verge</a>
