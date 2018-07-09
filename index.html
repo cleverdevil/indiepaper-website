@@ -42,6 +42,7 @@
           <nav id="nav">
             <ul>
               <li><a href="#intro" class="active">Introduction</a></li>
+              <li><a href="#indieauth" class="active">IndieAuth</a></li>
               <li><a href="#bookmarklet">Bookmarklet</a></li>
               <li><a href="#macos">macOS</a></li>
               <li><a href="#ios">iOS</a></li>
@@ -80,6 +81,32 @@
                   </div>
                 </div>
               </section>
+
+            <!-- IndieAuth Section -->
+              <section id="indieauth" class="main">
+                <div class="spotlight">
+                  <div class="content">
+                    <header class="major">
+                      <h2>Configure Indiepaper with IndieAuth</h2>
+                    </header>
+                    
+                    <p>
+                      If your website or feeds service supports IndieAuth, you can
+                      configure Indiepaper automatically by logging in with your
+                      domain.
+                    </p>
+
+                    <img width="100" src="images/indieauth-logo-color.png" alt="IndieAuth Logo" style="float: right; margin-left: 1em;">
+							   
+                    <form id="indieauth-form" action="https://indiepaper.io/indieauth" method="GET">
+                      <h2>Login with your website</h2>
+                      <input placeholder="https://yourdomain.com" type="text" name="me" style="width: 65%; margin-bottom: 0.5em;">
+                      <button type="submit">Login</button>
+                    </form>
+                  </div>
+                </div>
+              </section>
+
 
             <!-- Bookmarklet Section -->
               <section id="bookmarklet" class="main">
