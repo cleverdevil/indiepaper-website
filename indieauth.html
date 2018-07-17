@@ -42,14 +42,20 @@
                   <p>
                     You've successfully authenticated with your website. Below is
                     a bookmarklet you can drag to your bookmarks, and a link that
-                    you can click to auto-configure the macOS app. Before you click
+                    you can click to auto-configure the macOS or iOS app. Before you click
                     to configure the macOS app, <a href="https://github.com/cleverdevil/Indiepaper-macOS/releases">
-                    download the latest version of the app</a>.
+                    download the latest version of the app</a>. Want to configure the
+                    iOS Workflow? Show your details and then copy them into the workflow.
                   </p>
                   <p>
                     <a id="bookmarklet-link" href="http://example.com" class="button">Read Later</a>
-                    <a id="macos-app-link" href="asdf" class="button">Configure Indiepaper for macOS</a>
+                    <a id="macos-app-link" href="asdf" class="button">Configure Indiepaper App</a>
+                    <a href="#" onclick="showToken(); return false;" class="button">Show Details</a>
                   </p>
+                  <div id="token-details" style="display: none">
+                    Your token is <code id="token"></code> and your
+                    micropub endpoint is <code id="endpoint"></code>.
+                  </div>
                 </div>
               </section>
 
@@ -88,6 +94,15 @@
         function generateConfigurationLink(endpoint, token) {
           var b = 'indiepaper://configure?micropubTargetURL=' + endpoint + '&bearerToken=' + token;
           document.getElementById('macos-app-link').href = b;
+          
+          if (params.has('app')) {
+            window.location.href = b;
+          }
+        }
+
+        function generateTokenDisplay(endpoint, token) {
+          document.getElementById('token').innerText = token;
+          document.getElementById('endpoint').innerText = endpoint;
         }
  
         var endpoint = cookie('indiepaper-endpoint').replace(/"/g, '')
@@ -96,10 +111,22 @@
         if ((endpoint != null) && (token != null)) {
           generateBookmarklet(endpoint, token);
           generateConfigurationLink(endpoint, token);
+          generateTokenDisplay(endpoint, token);
 
           document.getElementById('indieauth-form').style.display = 'none';
           document.getElementById('generated-links').style.display = 'block';
         }
+
+        function showToken() {
+          document.getElementById('token-details').style.display = 'block';
+        }
+
+      } else if (params.has('app')) {
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "app";
+        input.value = "true";
+        document.getElementById('indieauth-form').appendChild(input);
       }
       </script>
 
