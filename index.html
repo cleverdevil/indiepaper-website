@@ -89,16 +89,31 @@
                     <header class="major">
                       <h2>Configure Indiepaper with IndieAuth</h2>
                     </header>
-                    
+                    <sup><em>
+                      Note: If you want to save IndiePaper articles into a new channel in your server,
+                      you might need to create that channel in your server before following the steps below.
+                    </em></sup>
                     <p>
                       If your website or feeds service supports IndieAuth, you can
                       configure Indiepaper automatically by logging in with your
                       domain.
                     </p>
+                    <p>
+                    <ol>
+                      <li>Enter your Microsub server url into the <a href="#indieauth">IndieAuth</a> form.</li>
+                      <li>You will be taken to your Microsub server, which may ask for your personal url to identify you. If this happens,
+                        it will take you to your personal website to confirm who you are.</li>
+                      <li>Once your identity is confirmed, your Microsub server will show you a confirmation screen to confirm you want to save
+                        IndiePaper articles to this Microsub server. If your Microsub server offers different channels it will provide a channel
+                        selection on this screen as well.</li>
+                      <li>You will be taken to the configuration screen where you can choose to either configure the bookmarklet, the native apps
+                        and/or get advanced details for setting up Workflow.</li>
+                    </ol>
+                    </p>
 
                     <img width="100" src="images/indieauth-logo-color.png" alt="IndieAuth Logo" style="float: right; margin-left: 1em;">
 							   
-                    <form id="indieauth-form" action="https://indiepaper.io/indieauth" method="GET">
+                    <form id="indieauth-form" action="https://indiepaper.io/indieauth" method="GET" target="_blank">
                       <h2>Login with your website</h2>
                       <input placeholder="https://yourdomain.com" type="text" name="me" style="width: 65%; margin-bottom: 0.5em;">
                       <button type="submit">Login</button>
