@@ -16,7 +16,7 @@
       function generate() {
         var destination = document.getElementById('destination').value;
         var token = document.getElementById('token').value;
-        var b = 'javascript:void%20function(){(function(){var%20e=new%20XMLHttpRequest;var%20t=%22url=%22+document.URL;e.open(%22POST%22,%22https://indiepaper.io%22,!0),e.setRequestHeader(%22Content-Type%22,%22application/x-www-form-urlencoded%22),e.setRequestHeader(%22mp-destination%22,%22' + destination + '%22),e.setRequestHeader(%22Authorization%22,%22Bearer%20' + token + '%22),e.onreadystatechange=function(){4==e.readyState%26%26200==e.status%26%26alert(%22Saved!%22)},e.send(t)})()}();';
+        var b = 'javascript:void%20function(){(function(){var%20e=new%20XMLHttpRequest;var%20t=%22url=%22+document.URL;e.open(%22POST%22,%22https://indiepaper.io%22,!0),e.setRequestHeader(%22Content-Type%22,%22application/x-www-form-urlencoded%22),e.setRequestHeader(%22x-indiepaper-destination%22,%22' + destination + '%22),e.setRequestHeader(%22Authorization%22,%22Bearer%20' + token + '%22),e.onreadystatechange=function(){4==e.readyState%26%26200==e.status%26%26alert(%22Saved!%22)},e.send(t)})()}();';
 
         document.getElementById('bookmarklet-link').href = b;
 
@@ -211,7 +211,7 @@
                     <a href="https://indieweb.org/Micropub">micropub</a>. To use Indiepaper
                     from your app, just send an HTTP POST request to Indiepaper with a
                     <code>Authorization</code> header containing a bearer token for your
-                    micropub endpoint, and a <code>mp-destination</code> header containing
+                    micropub endpoint, and a <code>x-indiepaper-destination</code> header containing
                     the URL for your micropub endpoint. Your POST request should pass the
                     variable "url" as form-encoded data. Optionally, you can pass the
                     variable "category" as form-encoded data to specify a category for the
@@ -229,7 +229,7 @@ POST / HTTP/1.1
 Host: indiepaper.io
 Content-Type: application/x-www-form-urlencoded
 Authorization: Bearer XXXXXX
-mp-destination: https://aperture.p3k.io/micropub
+x-indiepaper-destination: https://aperture.p3k.io/micropub
 
 url=https://www.theverge.com/2018/6/27/17509888/oumuamua-interstellar-comet-asteroid-solar-system-trajectory
                   </code></pre>
